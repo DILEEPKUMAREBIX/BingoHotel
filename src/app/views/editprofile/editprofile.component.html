@@ -1,0 +1,185 @@
+<div fxFlex="100" fxFlex.gt-xs="33">
+  <mat-card class="p-0">
+    <mat-card-title class="mat-bg-primary m-0">
+      <div class="card-title-text">
+        <a href="" class="toolbar-avatar md mr-1">
+          <img [src]="images.logo" alt="">
+        </a>
+        <span>{{profile.data.name}}</span>
+        <span fxFlex></span>
+        <!-- <button class="card-control" mat-icon-button [matMenuTriggerFor]="menu1">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>close</mat-icon>
+            <span>Remove panel</span>
+          </button>
+        </mat-menu> -->
+      </div>
+      <mat-divider></mat-divider>
+    </mat-card-title>
+    <img mat-card-image src="{{images.cover}}">
+    <mat-card-content>
+      <p>
+        {{profile.data.description}}
+      </p>
+      <!-- <mat-divider class="mb-1"></mat-divider> -->
+      <!-- <button mat-raised-button color="primary" class="mr-1">Delete</button> -->
+      <!-- <button mat-raised-button color="warn" class="mr-1">Delete</button> -->
+
+      <!-- <button mat-icon-button><mat-icon class="text-muted">favorite</mat-icon></button>
+      <button mat-icon-button><mat-icon class="text-muted">share</mat-icon></button> -->
+      <form>
+        <mat-form-field class="full-width">
+          <input matInput name="name" placeholder="Monday" [(ngModel)]="data.monday" value="">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput name="tuesday" placeholder="Tuesday" [(ngModel)]="data.tuesday" value="">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput name="wednesday" placeholder="Wednesday" [(ngModel)]="data.wednesday" value="">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput name="thursday" placeholder="Thursday" [(ngModel)]="data.thursday" value="">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput name="friday" placeholder="Friday" [(ngModel)]="data.friday" value="">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput name="saturday" placeholder="Saturday" [(ngModel)]="data.saturday" value="">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput name="sunday" placeholder="Sunday" [(ngModel)]="data.sunday" value="">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-card class="default">
+  <mat-tab-group>
+    <mat-tab label="Account Settings">
+      <mat-card-content class="mt-1">
+        <form>
+          <mat-form-field class="full-width">
+            <input matInput name="name" placeholder="Name" [(ngModel)]="data.name" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="restaurant_type" placeholder="Restaurant Type" [(ngModel)]="data.restaurant_type" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="address_1" placeholder="Address Line 1" [(ngModel)]="data.address_1" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="address_2" placeholder="Address Line 2" [(ngModel)]="data.address_2" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="city" placeholder="City" [(ngModel)]="data.city" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="state" placeholder="State" [(ngModel)]="data.state" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="country" placeholder="Country" [(ngModel)]="data.country" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="email" placeholder="Email" [(ngModel)]="data.email" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="countryCode" placeholder="Country Code" [(ngModel)]="data.countryCode" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="phone" placeholder="Phone" [(ngModel)]="data.phone" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="wifiname" placeholder="Wifi Name" [(ngModel)]="data.wifiname" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="website" placeholder="Website" [(ngModel)]="data.website" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="ccn" placeholder="Credit Card" [(ngModel)]="data.ccn" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="cvv" placeholder="CVV" [(ngModel)]="data.cvv" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="expirydate" placeholder="Expiry (Example: 10/19)" [(ngModel)]="data.expirydate" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="description" placeholder="Description (Min Length: 10, Max Length: 150)" [(ngModel)]="data.description"
+              value="">
+              <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="info" placeholder="Tagline (Min Length: 10, Max Length: 50)" [(ngModel)]="data.info" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="pincode" placeholder="Pincode" [(ngModel)]="data.pinCode" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="latitude" placeholder="Latitude" [(ngModel)]="data.latitude" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput name="longitude" placeholder="Longitude" [(ngModel)]="data.longitude" value="">
+            <span matSuffix class="mandatory">*</span>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="updateProfile()">Save</button>
+          <button mat-raised-button color="primary" (click)="cancelProfile()">Cancel</button>
+        </form>
+      </mat-card-content>
+    </mat-tab>
+
+    <!-- <mat-tab label="Profile Picture">
+      <mat-card-content>
+        <div class="mb-1">
+              <img id="profilepic" mat-card-image src="{{data.image}}" style="max-width:450px">
+
+              <p>Upload Cover Photo</p>
+              <input id="inputFileToLoad" type="file" name="Image" ng-model-instant (change)="imageUpload()" base-sixty-four-input /><br/>
+        </div>
+        <button mat-raised-button color="primary" (click)="updateProfile()">Save</button>
+      </mat-card-content>
+    </mat-tab> -->
+
+    <!-- <mat-tab label="Logo">
+      <mat-card-content>
+        <div class="mb-1">
+              <img id="logopic" mat-card-image src="{{data.logo}}" style="max-width:250px">
+
+              <p>Upload Logo</p>
+              <input id="inputFileToLoad2" type="file" name="Image2" ng-model-instant (change)="imageUpload2()" base-sixty-four-input /><br/>
+        </div>
+        <button mat-raised-button color="primary" (click)="updateProfile()">Save</button>
+      </mat-card-content>
+    </mat-tab> -->
+
+  </mat-tab-group>
+</mat-card>

@@ -1,0 +1,66 @@
+
+<div style="width:72%">
+<mat-card >
+
+  <mat-card-content >
+      <h5 style="padding:5px;color:#000000">Push Message</h5>
+    <div class="pb-1">
+        <mat-form-field class="full-width">
+            <input
+            matInput
+            name="title"
+            placeholder=""
+            [(ngModel)]="title"
+            maxlength="400">
+        </mat-form-field>
+    </div>
+    <!-- <div class="pb-1">
+        <mat-form-field class="full-width">
+            <input
+            matInput
+            name="text"
+            placeholder="Text"
+            [(ngModel)]="text">
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" (click)="openDialog()" class="mb-1">Open dialog</button>
+    <p>You selected: {{selectedOption}}</p> -->
+  </mat-card-content>
+
+</mat-card>
+
+<mat-card class="p-0" style="padding:5px">
+
+    <!-- <mat-card class="p-0"> -->
+  <!-- <mat-card-title class="">
+    <div class="card-title-text">
+      <span>Push Message</span>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-card-title> -->
+
+  <!-- </mat-card> -->
+    <!-- <mat-divider></mat-divider> -->
+    <div style="padding:10px;">
+    <h5 style="padding:12px">Marketing Text</h5>
+
+      <div>
+        <quill-editor
+          style="margin:0px;"
+          theme="snow"
+          [(ngModel)]="editorData"
+          (onContentChanged)="onContentChanged()"
+          onSelectionChanged="onSelectionChanged()"></quill-editor>
+      </div>
+    </div>
+
+</mat-card>
+<!-- <mat-card style="padding:8px;width:88px;"> -->
+<button mat-raised-button color="primary" class="mr-1" style="margin:4px">Send</button>
+<!-- </mat-card> -->
+
+
+<!-- <mat-card class="p-0" style="width:50%"> -->
+<!--
+</mat-card> -->
+</div>

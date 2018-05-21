@@ -1,0 +1,138 @@
+<mat-card class="p-0" style="width:80%">
+  <mat-card-title class="">
+    <div class="card-title-text">User Segments</div>
+    <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="View segments">
+
+
+        <div class="mat-box-shadow margin-333">
+            <ngx-datatable class="material bg-white"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="50"
+            [limit]="10"
+            [rows]="rows"
+            [columns]="columns">
+            </ngx-datatable>
+        </div>
+
+  </mat-tab>
+
+
+
+
+
+
+      <mat-tab label="Create Segment">
+
+
+        <!-- <mat-card-title class="">
+          <div class="card-title-text">
+            <span>Segment Name</span>
+          </div>
+
+        </mat-card-title> -->
+        <mat-card>
+        <mat-card-content>
+          <h5 style="color:#f7105b;margin-top:25px">Segment Name</h5>
+          <div class="pb-1">
+              <mat-form-field class="half-width">
+                  <input
+                  matInput
+                  name="title"
+                  placeholder="Segment Name"
+                  [(ngModel)]="title"
+                  maxlength="400">
+              </mat-form-field>
+          </div>
+          <!-- <div class="pb-1">
+              <mat-form-field class="full-width">
+                  <input
+                  matInput
+                  name="text"
+                  placeholder="Text"
+                  [(ngModel)]="text">
+              </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary" (click)="openDialog()" class="mb-1">Open dialog</button>
+          <p>You selected: {{selectedOption}}</p> -->
+          <h5 style="color:#f7105b;margin-bottom:22px;">Radios</h5>
+              <mat-radio-group fxLayout="column" [(ngModel)]="selectedSeason">
+                <mat-radio-button
+                [style.marginBottom]="'.5rem'"
+                *ngFor="let season of seasons"
+                [value]="season">
+                  {{season}}
+                </mat-radio-button>
+              </mat-radio-group>
+
+
+
+
+
+
+
+
+
+        <div class="pb-1">
+            <h5 style="color:#f7105b!important">Age</h5>
+            <mat-slider
+            [style.width]="'300px'"
+            [step]="5"></mat-slider>
+        </div>
+
+        <div class="pb-1">
+            <h5 style="color:#f7105b!important">Last Active</h5>
+            <mat-slider
+            [style.width]="'300px'"
+            [step]="5"></mat-slider>
+        </div>
+
+
+        <div class="pb-1">
+            <h5 style="color:#f7105b!important">Account Created</h5>
+            <mat-slider
+            [style.width]="'300px'"
+            [step]="5"></mat-slider>
+        </div>
+
+        <div class="pb-1">
+          <h5 style="color:#f7105b!important">Interests</h5>
+
+            <mat-form-field class="half-width">
+                <input
+                matInput
+                name="title"
+                placeholder="Interests"
+                [(ngModel)]="title"
+                maxlength="400">
+            </mat-form-field>
+        </div>
+
+   <form class="pt-1">
+      <mat-select id="langToggle" placeholder="" [(ngModel)]="selectedValue" name="food" class="mb-1">
+        <mat-option *ngFor="let food of foods" [value]="food.value" ngDefaultControl>
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+      <!-- <p> Selected value: {{selectedValue}} </p> -->
+  </form>
+
+
+
+
+
+
+  </mat-card-content>
+  </mat-card>
+
+  <button mat-raised-button color="primary" class="mr-1" style="margin-top:5px;margin-left:3px;">Save Template</button>
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

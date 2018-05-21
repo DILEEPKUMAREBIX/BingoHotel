@@ -1,0 +1,103 @@
+<div fxFlex="100" fxFlex.gt-xs="33">
+  <mat-card class="p-0">
+    <mat-card-title class="mat-bg-primary m-0">
+      <div class="card-title-text">
+        <span>{{profile.name}}</span>
+        <span fxFlex></span>
+        <!-- <mat-menu #menu1="matMenu"></mat-menu> -->
+        <!-- <button class="card-control" mat-icon-button [matMenuTriggerFor]="menu1">
+          <mat-icon>more_vert</mat-icon>
+        </button> -->
+        <!-- <mat-menu #menu1="matMenu">
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+          <button mat-menu-item>
+              <mat-icon>close</mat-icon>
+              <span>Remove panel</span>
+          </button>
+        </mat-menu> -->
+      </div>
+      <mat-divider></mat-divider>
+    </mat-card-title>
+    <img mat-card-image src="{{profile.avatar}}">
+    <mat-card-content>
+      <!-- <p>
+        Adipisci quas repellat sed. Quasi quaerat aut nam possimus vitae dignissimos, sapiente est atque tenetur eveniet iste iusto
+        veritatis. Adipisci quas repellat sed. Quasi quaerat aut.
+      </p> -->
+      <mat-divider class="mb-1"></mat-divider>
+      <!-- <button mat-raised-button color="primary" class="mr-1">Block</button>
+      <button mat-raised-button color="warn" class="mr-1">Unblock</button> -->
+
+      <!-- <button mat-icon-button><mat-icon class="text-muted">favorite</mat-icon></button>
+      <button mat-icon-button><mat-icon class="text-muted">share</mat-icon></button> -->
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-card class="default">
+  <mat-tab-group>
+    <mat-tab label="Account Settings">
+      <mat-card-content class="mt-1">
+          <!-- <span>Name: {{profile.name}}</span>
+          <br>
+          <span>Email: {{profile.email}}</span>
+          <br>
+          <span>Country Code: {{profile.countryCode}}}</span>
+          <br>
+          <span>Phone: {{profile.phone}}</span>
+          <br>
+          <span>Blocked : {{profile.blocked}}</span>
+          <br> -->
+          <form>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="name"
+              placeholder="Name: {{profile.name}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input
+                matInput
+                name="title"
+                placeholder="Email: {{profile.email}}"
+                value=""
+                disabled>
+              </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="email"
+              placeholder="Country Code: {{profile.countryCode}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="phone"
+              placeholder="Phone: {{profile.phone}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="address"
+              placeholder="Blocked : {{profile.blocked}}"
+              value=""
+              disabled>
+            </mat-form-field>
+          </form>
+      </mat-card-content>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

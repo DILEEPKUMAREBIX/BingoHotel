@@ -1,0 +1,356 @@
+<mat-card class="p-0">
+    <mat-card-title class="">
+        <div class="card-title-text">Register</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+
+
+
+    <mat-card-content>
+        <form [formGroup]="basicForm">
+            <div fxLayout="row" fxLayoutWrap="wrap">
+                <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+                    <p style="font-size:15px; font-weight:bold; font-style:italic">Restaurant/Bar Info</p>
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Min Length: 4, Max Length: 30">
+                            <input matInput name="name" formControlName="name" placeholder="Restaurant/Bar name" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['name'].hasError('required') && basicForm.controls['name'].touched" class="form-error-msg">
+                            Restaurant/Bar name is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Min Length: 10, Max Length: 50">
+                            <input matInput name="info" formControlName="info" placeholder="Tagline" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['info'].hasError('required') && basicForm.controls['info'].touched" class="form-error-msg">
+                            Tagline is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input matInput name="restaurant_type" formControlName="restaurant_type" placeholder="Restaurant Type" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['restaurant_type'].hasError('required') && basicForm.controls['restaurant_type'].touched"
+                            class="form-error-msg">
+                            Restaurant/Bar Type is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Min Length: 10, Max Length: 40">
+                            <input matInput name="address_1" formControlName="address_1" placeholder="Address Line 1" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['address_1'].hasError('required') && basicForm.controls['address_1'].touched" class="form-error-msg">
+                            Address Line 1 is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input matInput name="address_2" formControlName="address_2" placeholder="Address Line 2" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                    </div>
+
+
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput [matAutocomplete]="auto" matInput name="country" formControlName="country" placeholder="Country" value="">
+                            <span matSuffix class="mandatory">*</span>
+                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCountryChange($event)">
+                                <mat-option *ngFor="let country of filteredCountries | async" [value]="country.country">
+                                    <span>{{ country.country }}</span>
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['country'].hasError('required') && basicForm.controls['country'].touched" class="form-error-msg">
+                            Country is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <!-- <mat-form-field class="full-width" hintLabel="">
+                            <input matInput name="state" formControlName="state" placeholder="State" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field> -->
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput [matAutocomplete]="state" name="state" formControlName="state" placeholder="State" value="">
+                            <span matSuffix class="mandatory">*</span>
+                            <mat-autocomplete #state="matAutocomplete">
+                                <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+                                    <span>{{ state }}</span>
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['state'].hasError('required') && basicForm.controls['state'].touched" class="form-error-msg">
+                            State is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput name="city" formControlName="city" placeholder="City" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['city'].hasError('required') && basicForm.controls['city'].touched" class="form-error-msg">
+                            City is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput name="pinCode" formControlName="pinCode" placeholder="Zip Code" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['pinCode'].hasError('required') && basicForm.controls['pinCode'].touched" class="form-error-msg">
+                            Zip Code is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput type="email" name="email" formControlName="email" placeholder="Email"
+                             value="" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['email'].hasError('required') && basicForm.controls['email'].touched" class="form-error-msg">
+                            Email is required </small>
+                        <small *ngIf="basicForm.controls['email'].hasError('required') && basicForm.controls['email'].touched" class="form-error-msg">
+                            Invaild email address </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input type="password" name="password" matInput formControlName="password" placeholder="Password" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['password'].hasError('required') && basicForm.controls['password'].touched" class="form-error-msg">
+                            Password is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input type="password" name="cpassword" matInput formControlName="cpassword" placeholder="Confirm Password" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['cpassword'].hasError('required') && basicForm.controls['cpassword'].touched" class="form-error-msg">
+                            Confirm Password is required </small>
+                        <small *ngIf="basicForm.controls['cpassword'].value != basicForm.controls['password'].value" class="form-error-msg">
+                            Confirm Password must same as Password </small>
+                    </div>
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput name="countryCode" formControlName="countryCode" placeholder="Country Code">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['countryCode'].hasError('required') && basicForm.controls['countryCode'].touched" class="form-error-msg">
+                            Invaild Country Code </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput OnlyNumber="true" name="phone" formControlName="phone" placeholder="Phone Number">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['phone'].hasError('required') && basicForm.controls['phone'].touched" class="form-error-msg">
+                            Invaild Phone Number </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Min Length: 10, Max Length: 150">
+                            <input matInput name="description" formControlName="description" placeholder="Description" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['description'].hasError('required') && basicForm.controls['description'].touched" class="form-error-msg">
+                            Description is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Min Length: 12, Max Length: 40">
+                            <input matInput name="website" formControlName="website" placeholder="Website" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['website'].hasError('required') && basicForm.controls['website'].touched" class="form-error-msg">
+                            Website is required </small>
+                    </div>
+
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+
+                    <p style="font-size:15px; font-weight:bold; font-style:italic">Restaurant/Bar Timings</p>
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Example: 10am - 7pm">
+                            <input matInput name="monday" #monday (click)="openDialog(monday,'Monday')" formControlName="monday" placeholder="Monday Timings"
+                                value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['monday'].hasError('required') && basicForm.controls['monday'].touched" class="form-error-msg">
+                            Monday Timings are required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Example: 10am - 7pm">
+                            <input matInput name="tuesday" #tuesday (click)="openDialog(tuesday,'Tuesday')" formControlName="tuesday" placeholder="Tuesday Timings"
+                                value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['tuesday'].hasError('required') && basicForm.controls['tuesday'].touched" class="form-error-msg">
+                            Tuesday Timings are required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Example: 10am - 7pm">
+                            <input matInput name="wednesday" #wednesday (click)="openDialog(wednesday,'Wednesday')" formControlName="wednesday" placeholder="Wednesday Timings"
+                                value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['wednesday'].hasError('required') && basicForm.controls['wednesday'].touched" class="form-error-msg">
+                            Wednesday Timings are required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Example: 10am - 7pm">
+                            <input matInput name="thursday" #thursday (click)="openDialog(thursday,'Thursday')" formControlName="thursday" placeholder="Thursday Timings"
+                                value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['thursday'].hasError('required') && basicForm.controls['thursday'].touched" class="form-error-msg">
+                            Thursday Timings are required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Example: 10am - 7pm">
+                            <input matInput name="friday" #friday (click)="openDialog(friday,'Friday')" formControlName="friday" placeholder="Friday Timings"
+                                value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['friday'].hasError('required') && basicForm.controls['friday'].touched" class="form-error-msg">
+                            Friday Timings are required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Example: 10am - 7pm">
+                            <input matInput name="saturday" #saturday (click)="openDialog(saturday,'Saturday')" formControlName="saturday" placeholder="Saturday Timings"
+                                value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['saturday'].hasError('required') && basicForm.controls['saturday'].touched" class="form-error-msg">
+                            Saturday Timings are required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Example: 10am - 7pm">
+                            <input matInput name="sunday" #sunday (click)="openDialog(sunday,'Sunday')" formControlName="sunday" placeholder="Sunday Timings"
+                                value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['sunday'].hasError('required') && basicForm.controls['sunday'].touched" class="form-error-msg">
+                            Sunday Timings are required </small>
+                    </div>
+
+                    <p style="font-size:15px; font-weight:bold; font-style:italic">Restaurant/Bar Location</p>
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Should be less than 90">
+                            <input matInput name="latitude" formControlName="latitude" placeholder="Latitude" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['latitude'].hasError('required') && basicForm.controls['latitude'].touched" class="form-error-msg">
+                            Latitude is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Should be less than 90">
+                            <input matInput name="longitude" formControlName="longitude" placeholder="Longitude" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['longitude'].hasError('required') && basicForm.controls['longitude'].touched" class="form-error-msg">
+                            Longitude is required </small>
+                    </div>
+
+                    <p style="font-size:15px; font-weight:bold; font-style:italic">Payment Info</p>
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput id="iban" (click)="initCC()" maxlength="19" name="ccn" OnlyNumber="true" formControlName="ccn" placeholder="Credit Card Number" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['ccn'].hasError('required') && basicForm.controls['ccn'].touched" class="form-error-msg">
+                            Credit Card Number is required </small>
+                    </div>
+
+                    <div class="pb-1" class="full-width">
+                        <div class="quantity">
+                            <label for="stepper">Expiry Date</label>
+                            <input id="stepper" type="number" min="1" max="12" step="1" formControlName="month" placeholder="Month">
+                            <input type="number" min="18" max="50" step="1" formControlName="year" placeholder="Year">
+                        </div>
+                    </div>
+
+                    <!-- <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="date"
+                            formControlName="expirydate"
+                            placeholder="Expiry Date"
+                            [matDatepicker]="appDatepicker">
+                            <mat-datepicker-toggle matSuffix [for]="appDatepicker"></mat-datepicker-toggle>
+                        </mat-form-field>
+                        <mat-datepicker #appDatepicker></mat-datepicker>
+                    </div> -->
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput name="cvv" OnlyNumber="true" formControlName="cvv" placeholder="CVV" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['cvv'].hasError('required') && basicForm.controls['cvv'].touched" class="form-error-msg">
+                            CVV is required </small>
+                    </div>
+
+                    <p style="font-size:15px; font-weight:bold; font-style:italic">Restaurant/Bar Wifi Details</p>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="Min Length: 5, Max Length: 50">
+                            <input matInput name="wifiname" formControlName="wifiname" placeholder="Wifi Name" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['wifiname'].hasError('required') && basicForm.controls['wifiname'].touched" class="form-error-msg">
+                            Wifi Name is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width" hintLabel="">
+                            <input matInput name="wifisecret" formControlName="wifisecret" placeholder="Wifi Password" value="">
+                            <span matSuffix class="mandatory">*</span>
+                        </mat-form-field>
+                        <small *ngIf="basicForm.controls['wifisecret'].hasError('required') && basicForm.controls['wifisecret'].touched" class="form-error-msg">
+                            Wifi Password is required </small>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </form>
+
+        <p style="font-size:15px; font-weight:bold; font-style:italic">Restaurant/Bar Images</p>
+        <div class="mb-1">
+            <p>Upload Logo</p>
+            <span matSuffix class="mandatory">*</span>
+            <input id="inputFileToLoad2" type="file" name="Image2" ng-model-instant (change)="imageUpload2()" base-sixty-four-input />
+            <br/>
+            <p style="color:red; font-size:12px; font-style:italic;">Upload Limit: 100kb</p>
+        </div>
+
+        <div class="mb-1">
+            <p>Upload Cover</p>
+            <span matSuffix class="mandatory">*</span>
+            <input id="inputFileToLoad" type="file" name="Image" ng-model-instant (change)="imageUpload()" base-sixty-four-input />
+            <br/>
+            <p style="color:red; font-size:12px; font-style:italic;">Upload Limit: 200kb</p>
+        </div>
+    </mat-card-content>
+</mat-card>
+<button mat-raised-button type="button" (click)="registerGuide()" color="primary" style="margin-left:5px;">Submit</button>
+<button mat-raised-button type="button" (click)="cancelGuide()" color="primary" style="margin-left:5px;">Cancel</button>

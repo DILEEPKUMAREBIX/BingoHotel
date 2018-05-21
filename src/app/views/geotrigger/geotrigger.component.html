@@ -1,0 +1,84 @@
+<mat-card class="p-0">
+  <mat-card-title class="">
+    <div class="card-title-text">Tabs</div>
+    <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Tab 1">
+
+        <h5>Select Geo Region</h5>
+        <form class="pt-1">
+           <mat-select id="langToggle" placeholder="" [(ngModel)]="selectedValue" name="food" class="mb-1">
+             <mat-option *ngFor="let food of foods" [value]="food.value" ngDefaultControl>
+               {{food.viewValue}}
+             </mat-option>
+           </mat-select>
+         </form>
+
+         <h5>Select User Segment</h5>
+         <form class="pt-1">
+            <mat-select id="langToggle" placeholder="" [(ngModel)]="selectedValue" name="food" class="mb-1">
+              <mat-option *ngFor="let food of foods" [value]="food.value" ngDefaultControl>
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </form>
+
+          <h5>Select Template</h5>
+          <form class="pt-1">
+             <mat-select id="langToggle" placeholder="" [(ngModel)]="selectedValue" name="food" class="mb-1">
+               <mat-option *ngFor="let food of foods" [value]="food.value" ngDefaultControl>
+                 {{food.viewValue}}
+               </mat-option>
+             </mat-select>
+           </form>
+
+           <h5>Select Event Type</h5>
+           <form class="pt-1">
+              <mat-select id="langToggle" placeholder="" [(ngModel)]="selectedValue" name="food" class="mb-1">
+                <mat-option *ngFor="let food of foods" [value]="food.value" ngDefaultControl>
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </form>
+
+            <h5>Cool Off Days</h5>
+            <div class="pb-1">
+                <mat-form-field class="half-width">
+                    <input
+                    matInput
+                    name="title"
+                    placeholder="Set Cool Off Days"
+                    [(ngModel)]="title"
+                    maxlength="400">
+                </mat-form-field>
+            </div>
+
+            <button mat-raised-button color="primary" class="mr-1" style="margin-left:5px">Save</button>
+
+
+
+
+      </mat-tab>
+      <mat-tab label="Tab 2">
+
+
+        <div class="mat-box-shadow margin-333">
+            <ngx-datatable class="material bg-white"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="50"
+            [limit]="10"
+            [rows]="rows"
+            [columns]="columns">
+            </ngx-datatable>
+        </div>
+
+
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

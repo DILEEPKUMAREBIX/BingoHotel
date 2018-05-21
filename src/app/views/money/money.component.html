@@ -1,0 +1,57 @@
+<mat-card class="p-0" >
+  <mat-card-title class="" >
+    <div class="card-title-text">Money</div>
+    <mat-divider></mat-divider>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Dues" >
+
+        <mat-card-content >
+              <!-- <form [formGroup]="basicForm"> -->
+                  <div fxLayout="row" fxLayoutWrap="wrap">
+                      <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1" >
+
+                        <div class="pb-1">
+                          <mat-form-field style="padding-top:25px;">
+                              <mat-select id="langToggle" placeholder="Status" [(ngModel)]="guideQuery.status" name="food" class="mb-1">
+                                <mat-option *ngFor="let status of status" [value]="status.value" ngDefaultControl>
+                                  {{status.viewValue}}
+                                </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+                        </div>
+
+                          <div class="pb-1">
+                              <mat-form-field>
+                                  <input
+                                  matInput
+                                  name="Place Name"
+                                  [(ngModel)]="guideQuery.startDate"
+                                  placeholder="Start Date MM-DD-YYYY"
+                                  value="">
+                              </mat-form-field>
+                          </div>
+
+
+                          <div class="pb-1">
+                              <mat-form-field>
+                                  <input
+                                  matInput
+                                  name="Description"
+                                  [(ngModel)]="guideQuery.endDate"
+                                  placeholder="End Date MM-DD-YYYY"
+                                  value="">
+                              </mat-form-field>
+                          </div>
+
+                      </div>
+                  </div>
+                  <button mat-raised-button color="primary" class="mr-1" (click)="guideDues(guideQuery.status)">Submit</button>
+              <!-- </form> -->
+          </mat-card-content>
+      </mat-tab>
+
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

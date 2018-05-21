@@ -1,0 +1,17 @@
+<h1 mat-dialog-title> {{data.name}} Timings</h1>
+<div mat-dialog-content>
+    <label>
+      From
+      <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" #txt1>
+      <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+    </label>
+    <label>
+      To
+      <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" #txt2>
+      <owl-date-time [pickerType]="'timer'" #dt5></owl-date-time>
+    </label>
+  </div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="okClick(txt1,txt2)" cdkFocusInitial>Ok</button>
+</div>

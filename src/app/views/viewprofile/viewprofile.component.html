@@ -1,0 +1,309 @@
+<div fxFlex="100" fxFlex.gt-xs="33">
+  <mat-card class="p-0">
+    <mat-card-title class="mat-bg-primary m-0">
+      <div class="card-title-text">
+        <a href="" class="toolbar-avatar md mr-1"><img [src]="images.logo" alt=""></a>
+        <span>{{this.profile.data.name}}</span>
+        <span fxFlex></span>
+        <!-- <button class="card-control" mat-icon-button [matMenuTriggerFor]="menu1">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+          <button mat-menu-item>
+              <mat-icon>close</mat-icon>
+              <span>Remove panel</span>
+          </button>
+        </mat-menu> -->
+      </div>
+      <mat-divider></mat-divider>
+    </mat-card-title>
+    <img mat-card-image src="{{images.cover}}">
+    <mat-card-content>
+      <p>
+        {{this.profile.data.description}}
+      </p>
+      <!-- <mat-divider class="mb-1"></mat-divider> -->
+      <!-- <button mat-raised-button color="primary" class="mr-1">Delete</button> -->
+      <!-- <button mat-raised-button color="warn" class="mr-1">Delete</button> -->
+
+      <!-- <button mat-icon-button><mat-icon class="text-muted">favorite</mat-icon></button>
+      <button mat-icon-button><mat-icon class="text-muted">share</mat-icon></button> -->
+      <form>
+        <mat-form-field class="full-width">
+          <input
+          matInput
+          name="name"
+          placeholder="Monday: {{this.profile.data.monday}}"
+          value=""
+          disabled>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input
+            matInput
+            name="address"
+            placeholder="Tuesday: {{this.profile.data.tuesday}}"
+            value=""
+            disabled>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+              <input
+              matInput
+              name="address"
+              placeholder="Wednesday: {{this.profile.data.wednesday}}"
+              value=""
+              disabled>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+                <input
+                matInput
+                name="address"
+                placeholder="Thursday: {{this.profile.data.thursday}}"
+                value=""
+                disabled>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+                <input
+                matInput
+                name="address"
+                placeholder="Friday: {{this.profile.data.friday}}"
+                value=""
+                disabled>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+                <input
+                matInput
+                name="address"
+                placeholder="Saturday: {{this.profile.data.saturday}}"
+                value=""
+                disabled>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+                <input
+                matInput
+                name="address"
+                placeholder="Sunday: {{this.profile.data.sunday}}"
+                value=""
+                disabled>
+        </mat-form-field>
+        </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<mat-card class="default">
+  <mat-tab-group>
+    <mat-tab label="Account Settings">
+      <mat-card-content class="mt-1">
+          <form>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="name"
+              placeholder="Name: {{this.profile.data.name}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="Restaurant Type"
+              placeholder="Restaurant Type: {{this.profile.data.restaurant_type}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input
+                matInput
+                name="address_1"
+                placeholder="Address Line 1: {{this.profile.data.address_1}}"
+                value=""
+                disabled>
+              </mat-form-field>
+              <mat-form-field class="full-width">
+                <input
+                matInput
+                name="address_2"
+                placeholder="Address Line 2: {{this.profile.data.address_2}}"
+                value=""
+                disabled>
+              </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="city"
+              placeholder="City: {{this.profile.data.city}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="state"
+              placeholder="State: {{this.profile.data.state}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="country"
+              placeholder="Country: {{this.profile.data.country}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="email"
+              placeholder="Email: {{this.profile.data.email}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="phone"
+              placeholder="Phone: {{this.profile.data.phone}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="phone"
+              placeholder="Phone: {{this.profile.data.wifiname}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="website"
+              placeholder="Website: {{this.profile.data.website}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="ccn"
+              placeholder="Credit Card: {{this.profile.data.ccn}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="expirydate"
+              placeholder="Expiry: {{this.profile.data.expirydate}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="description"
+              placeholder="Description: {{this.profile.data.description}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="info"
+              placeholder="Info: {{this.profile.data.info}}"
+              value=""
+              disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <input
+              matInput
+              name="pincode"
+              placeholder="Pincode: {{this.profile.data.pinCode}}"
+              value=""
+              disabled>
+            </mat-form-field>
+          </form>
+      </mat-card-content>
+    </mat-tab>
+    <!-- <mat-tab label="Profile Picture">
+      <mat-card-content>
+        <div class="mb-1 mt-1">
+          <p>Upload a profile picture</p>
+          <input type="file" ng2FileSelect [uploader]="uploader" />
+        </div>
+
+        <div class="mb-1">
+          <div ng2FileDrop
+          [ngClass]="{'dz-file-over': hasBaseDropZoneOver}"
+          [uploader]="uploader"
+          (fileOver)="fileOverBase($event)"
+          class="fileupload-drop-zone">
+          Drop png/jpeg file here
+          </div>
+        </div>
+        <table class="default-table mat-box-shadow" style="width: 100%">
+          <thead>
+            <tr>
+                <th width="30%">Name</th>
+                <th>Size</th>
+                <th>Progress</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody *ngIf="uploader.queue.length; else tableNoData">
+            <tr *ngFor="let item of uploader.queue">
+                <td>{{ item?.file?.name }}</td>
+                <td nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                <td>
+                    <div class="progress" style="margin-bottom: 0;">
+                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                        <mat-progress-bar
+                          class=""
+                          color="primary"
+                          mode="determinate"
+                          [value]="item.progress">
+                        </mat-progress-bar>
+                    </div>
+                </td>
+                <td class="">
+                    <mat-icon *ngIf="item.isSuccess">check</mat-icon>
+                    <mat-icon *ngIf="item.isCancel" color="accent">cancel</mat-icon>
+                    <mat-icon *ngIf="item.isError" color="warn">error</mat-icon>
+                </td>
+                <td nowrap>
+                    <button
+                    mat-raised-button
+                    class="mat-primary"
+                    (click)="item.upload()"
+                    [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
+                    <button
+                    mat-raised-button
+                    class="mat-accent"
+                    (click)="item.cancel()"
+                    [disabled]="!item.isUploading">Cancel</button>
+
+                    <button
+                    mat-raised-button
+                    class="mat-warn"
+                    (click)="item.remove()">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+            <ng-template #tableNoData>
+              <p [ngStyle]="{padding: '0 1.2rem'}">Queue is empty</p>
+            </ng-template>
+        </table>
+      </mat-card-content>
+    </mat-tab> -->
+  </mat-tab-group>
+</mat-card>
